@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>my</groupId>
+  <artifactId>plugin-usage</artifactId>
+  <version>1.0</version>
+  <name>my plugin usage</name>
+  <build>
+	<plugins>
+		
+		<!-- Run controller, analysis and extract summary report -->
+		<plugin>
+			<groupId>perflab</groupId>
+			<artifactId>loadrunner-wrapper</artifactId>
+			<version>1.0</version>
+			<configuration>
+				<loadRunnerBin>C:\\Program Files (x86)\\HP\\LoadRunner\\bin</loadRunnerBin>
+				<scenario>C:\\Program Files (x86)\\HP\\LoadRunner\\scenario\\Scenario1.lrs</scenario>
+				<resultsFolder>C:\\Jenkins\\workspace\\ZZZ\\88</resultsFolder>
+				<htmlReportFolder>C:\\Jenkins\\workspace\\ZZZ\\88\\An_Report1</htmlReportFolder>
+				<summaryFile>C:\\Jenkins\\workspace\\ZZZ\\lr_report.csv</summaryFile>
+			</configuration>
+		</plugin>
+	</plugins>
+  </build>
+
+  <!-- c:\Apache-maven-3.2.3\bin\mvn com.sap:loadrunner-wrapper:1.0:sayhi -->
+  <!--	
+		loadRunner.Bin=C:\\Program Files (x86)\\HP\\LoadRunner\\bin
+		scenario=C:\\Program Files (x86)\\HP\\LoadRunner\\scenario\\Scenario1.lrs
+		results.Folder=%WORKSPACE%\\%BUILD_NUMBER%
+		htmlReport.Folder=%WORKSPACE%\\%BUILD_NUMBER%\\An_Report1
+		summary.File=%WORKSPACE%\\lr_report.csv
+	-->
+	
+</project>
