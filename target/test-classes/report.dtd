@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT report (start,test*,end)>
+<!ATTLIST report name CDATA #REQUIRED>
+<!ATTLIST report categ CDATA #REQUIRED>
+<!ELEMENT start (date,time)>
+<!ELEMENT end (date,time)>
+<!ELEMENT date EMPTY>
+<!ATTLIST date format CDATA #REQUIRED>
+<!ATTLIST date val CDATA #REQUIRED>
+<!ELEMENT time EMPTY>
+<!ATTLIST time format CDATA #REQUIRED>
+<!ATTLIST time val CDATA #REQUIRED>
+<!ELEMENT test (description,targets?,platform?, commandline*,result)>
+<!ATTLIST test name CDATA #REQUIRED>
+<!ATTLIST test executed (yes|no) #REQUIRED>
+<!ELEMENT description (#PCDATA)>
+<!ELEMENT targets (target*)>
+<!ELEMENT target (#PCDATA)>
+<!ATTLIST target threaded (true|false) #IMPLIED>
+<!ELEMENT platform (os?,processor?,hardware*,environment?)>
+<!ATTLIST platform name CDATA #REQUIRED>
+<!ATTLIST platform remote CDATA #IMPLIED>
+<!ATTLIST platform capspool CDATA #IMPLIED>
+<!ELEMENT os (type?,name?,version?,distribution?)>
+<!ELEMENT type (#PCDATA)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT version (#PCDATA)>
+<!ELEMENT distribution (#PCDATA)>
+<!ELEMENT processor (frequency*)>
+<!ATTLIST processor arch CDATA #REQUIRED>
+<!ELEMENT frequency EMPTY>
+<!ATTLIST frequency unit CDATA #REQUIRED>
+<!ATTLIST frequency cpufreq CDATA #REQUIRED>
+<!ELEMENT hardware (#PCDATA)>
+<!ELEMENT environment (#PCDATA)>
+<!ELEMENT commandline (#PCDATA)>
+<!ATTLIST commandline rank CDATA #REQUIRED>
+<!ATTLIST commandline time CDATA #REQUIRED>
+<!ATTLIST commandline duration CDATA #REQUIRED>
+<!ELEMENT result (success, compiletime?,executiontime?,performance?, errorlog?, log*)>
+<!ELEMENT success EMPTY>
+<!ATTLIST success passed (yes|no) #REQUIRED>
+<!ATTLIST success state CDATA #REQUIRED>
+<!ATTLIST success hasTimedOut (true|false|yes|no) #REQUIRED>
+<!ELEMENT compiletime EMPTY>
+<!ATTLIST compiletime unit CDATA #REQUIRED>
+<!ATTLIST compiletime mesure CDATA #REQUIRED>
+<!ATTLIST compiletime isRelevant (true|false) #REQUIRED>
+<!ELEMENT executiontime EMPTY>
+<!ATTLIST executiontime unit CDATA #REQUIRED>
+<!ATTLIST executiontime mesure CDATA #REQUIRED>
+<!ATTLIST executiontime isRelevant (true|false) #REQUIRED>
+<!ELEMENT performance EMPTY>
+<!ATTLIST performance unit CDATA #REQUIRED>
+<!ATTLIST performance mesure CDATA #REQUIRED>
+<!ATTLIST performance isRelevant (true|false) #REQUIRED>
+<!ELEMENT errorlog (#PCDATA)>
+<!ELEMENT log (#PCDATA)>
+<!ATTLIST log name CDATA #REQUIRED>
+

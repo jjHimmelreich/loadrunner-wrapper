@@ -1,0 +1,22 @@
+<report name="LoadRunner report" categ ="Smoke test">
+<start>
+	<date format="YYYYMMDD" val="20100922" />
+	<time format="HHMMSS" val="215935" />
+</start>
+
+<test name="Smoke test" executed="yes" categ="Smoke test">
+
+<description>Tests if ATE LAN socket and communication works.</description>
+
+<result>
+	<success passed="yes" state ="100" hasTimedOut="no" />
+	<compiletime unit="s" mesure="0" isRelevant="yes" />
+	<performance unit="%" mesure="0" isRelevant="yes" />
+	<executiontime unit="s" mesure="12" isRelevant="yes" />
+	<metrics>
+		<006_My_Benefits unit="sec" mesure="0.115" isRelevant="yes"/>
+		<007_My_Timesheet unit="sec" mesure="1.247" isRelevant="yes"/>
+	</metrics>
+</result>
+</test>
+</report>
