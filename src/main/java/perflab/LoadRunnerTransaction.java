@@ -5,7 +5,7 @@ package perflab;
 
 
 /**
- * @author I046774
+ * @author eHimmelreich
  *
  */
 public class LoadRunnerTransaction {
