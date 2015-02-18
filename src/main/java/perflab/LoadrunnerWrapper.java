@@ -96,8 +96,14 @@ public class LoadrunnerWrapper extends AbstractMojo
      */
     private File basedir;
         
+    /**
+     * 
+     */
     private ArrayList<LoadRunnerTransaction> transactions = new ArrayList<LoadRunnerTransaction>(); 
     
+    /* (non-Javadoc)
+     * @see org.apache.maven.plugin.AbstractMojo#execute()
+     */
     public void execute() throws MojoExecutionException, MojoFailureException
     {
     	getLog().info("base dir = " + basedir);
@@ -115,19 +121,20 @@ public class LoadrunnerWrapper extends AbstractMojo
     	
     	if(controllerRC != -1) 
     	{
-	    	/* Run Analysis */
+	    	/* Run Analysis if controller return code is okay */
 	
 	    	String resultsfile = getResultsFile(resultsFolder);    	
 			String analysisCommand = "\"" + loadRunnerBin + "\\AnalysisUI.exe\" -RESULTPATH " + resultsfile;
 			int analysisRC = runCommand(analysisCommand);
 			
-			/* Parse analysis results and extract short report */
+			/* Parse analysis results and extract short report if analysis return code is okay */
 			if(analysisRC != -1){
 				extractKPIs(resultsFolder, htmlReportFolder);
 			}
 			
     	}else{
     		getLog().error("Controller failed. Exit code is: " + controllerRC);
+    		throw new MojoExecutionException("Controller failed. Exit code is: " + controllerRC);
     	}
 		
     }
@@ -202,6 +209,10 @@ public class LoadrunnerWrapper extends AbstractMojo
 		parseSummaryFile( htmlReportFolder + "\\summary.html", summaryFile);
 	}
 	
+	/**
+	 * @param htmlSummaryFile - load runner analysis html report file to parse
+	 * @param summaryFile - location of summary file to be generated out of loadrunner html analysis
+	 */
 	protected void parseSummaryFile(String htmlSummaryFile, String summaryFile){
 		try {
 			
@@ -241,6 +252,11 @@ public class LoadrunnerWrapper extends AbstractMojo
 		        
 	}
     
+	/**
+	 * @param transactions - ArrayList of LoadRunnerTransaction objects
+	 * @param summaryFile - locatiob of SCV summary file to be generated out of transaction objects
+	 * @return
+	 */
 	private boolean generatePlotCSVReport(ArrayList<LoadRunnerTransaction> transactions, String summaryFile) {
 		
 		boolean rc= false; 

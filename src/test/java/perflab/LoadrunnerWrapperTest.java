@@ -16,7 +16,7 @@ public class LoadrunnerWrapperTest extends TestCase {
 	
 	public void testParseSummaryFile() {
 		assertNotNull("Test file missing", getClass().getResource("/summary.html"));
-		l.parseSummaryFile("C:\\MavenLoadRunnerPlugin\\loadrunnerWrapper\\src\\test\\resources\\summary.html", "C:\\MavenLoadRunnerPlugin\\loadrunnerWrapper\\src\\test\\resources\\summary.csv");	
+		l.parseSummaryFile("C:\\GitHub\\loadrunner-wrapper\\src\\test\\resources\\summary.html", "C:\\GitHub\\loadrunner-wrapper\\src\\test\\resources\\summary.csv");	
 	}
 	
 }
