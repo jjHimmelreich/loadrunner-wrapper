@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>my</groupId>
   <artifactId>plugin-usage</artifactId>
-  <version>1.0</version>
+  <version>1.1-SNAPSHOT</version>
   <name>LoadRunner wrapper execution</name>
   <build>
 	<plugins>
@@ -17,7 +17,9 @@
 			<configuration>
 				<loadRunnerBin>${loadRunner.Bin}</loadRunnerBin>
 				<scenario>${scenario}</scenario>
+				<additionalAttributes>${scenario.additionalAttributes}</additionalAttributes>
 				<resultsFolder>${results.Folder}</resultsFolder>
+				<analysisTemplateName>${analysis.TemplateName}</analysisTemplateName>
 				<htmlReportFolder>${htmlReport.Folder}</htmlReportFolder>
 				<summaryFile>${summary.File}</summaryFile>
 			</configuration>
@@ -31,7 +33,7 @@
 		scenario=C:\\Program Files (x86)\\HP\\LoadRunner\\scenario\\Scenario1.lrs
 		results.Folder=%WORKSPACE%\\%BUILD_NUMBER%
 		htmlReport.Folder=%WORKSPACE%\\%BUILD_NUMBER%\\An_Report1
-		summary.File=%WORKSPACE%\\lr_report.csv
+		summary.File=%WORKSPACE%\\lr_report.xml
 	-->
 	
 </project>
